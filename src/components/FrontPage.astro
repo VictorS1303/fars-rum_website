@@ -19,6 +19,7 @@ import OpenMenuButton from "../components/OpenMenuButton.astro";
 <style>
     .container.front-page-container {
         display: flex;
+        z-index: 3000;
     }
 
     .container.front-page-container p {
@@ -43,6 +44,7 @@ import OpenMenuButton from "../components/OpenMenuButton.astro";
         top: -400%;
         opacity: 0;
         pointer-events: none;
+        z-index: -5000;
         transition:
             top 0.2s ease-in,
             opacity 0.2s ease-in;
