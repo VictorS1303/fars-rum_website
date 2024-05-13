@@ -47,6 +47,7 @@ const { openMenuButtonText } = Astro.props;
 
 <script>
     const openMenuButton = document.querySelector('#open_menu_button') as HTMLButtonElement;
+    const sectionContainers = document.querySelectorAll('.section-container')
     const frontPageContainer = document.querySelector('.front-page-container') as HTMLElement;
 
     openMenuButton.addEventListener('click', openMenu)
@@ -55,5 +56,6 @@ const { openMenuButtonText } = Astro.props;
     function openMenu()
     {
         frontPageContainer.classList.add('opened')
+        sectionContainers[0].classList.add('active')
     }
 </script>
