@@ -1,5 +1,4 @@
 ---
-import FrontPage from "./FrontPage.astro";
 const { openMenuButtonText } = Astro.props;
 ---
 
@@ -26,23 +25,21 @@ const { openMenuButtonText } = Astro.props;
         overflow: hidden;
     }
 
-    .hover-overlay
-    {
+    .hover-overlay {
         position: absolute;
         top: 0;
         left: 20px;
         height: 500%;
         transform: rotate(-45deg) translate(-50%, -50%);
         width: 20px;
-        background-color: rgba(255, 255, 255, .4);
-        transition: left .7s ease-in;
+        background-color: rgba(255, 255, 255, 0.4);
+        transition: left 0.7s ease-in;
     }
-
-    .open-menu-button:hover .hover-overlay
-    {
+    .open-menu-button:hover .hover-overlay {
         left: 300px;
-        transition: left .7s ease-in;
+        transition: left 0.7s ease-in;
     }
+   
 </style>
 
 <script>
