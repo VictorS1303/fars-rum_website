@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400');
+
+:root
+{
+    /* COLORS */
+    --background-color: #e8d9ab;
+    --heading-color: #b72126;
+    --primary-text-color: #231f20;
+    --secondary-text-color: #fff;
+    --border-color: #b72126;
+
+
+    /* FONT SIZES */
+
+    /* Mobile */
+    --primary-heading-mobile-font-size: 21px;
+    --secondary-heading-mobile-font-size: 18px;
+    --tertiary-heading-mobile-font-size: 16px;
+    --paragraph-font-mobile-size: 16px;
+
+    /* Desktop */
+    --primary-heading-desktop-font-size: 35px;
+    --secondary-heading-desktop-font-size: 32px;
+    --tertiary-heading-desktop-font-size: 30px;
+    --paragraph-font-desktop-size: 18px;
+
+
+    /* FONT WEIGHTS */
+    --primary-heading-font-weight: 700;
+    --secondary-heading-font-weight: 600;
+    --tertiary-heading-font-weight: 500;
+    --paragraph-font-weight: 400;
+
+    /* RADII */
+    --base-border-radius: 10px;
+
+    /* SHADOWS */
+    --text-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+    --box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+}
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    user-select: none;
+}
+
+@font-face
+{
+    font-family: headingsFont;
+    src: url('fonts/ObviouslyDemo.woff2');
+}
+
+h1, h2, h3
+{
+    font-family: 'headingsFont';
+}
+
+button
+{
+    background-color: transparent;
+    cursor: pointer;
+}
+
+li
+{
+    list-style: none;
+}
+
+a
+{
+    text-decoration: none;
+}
