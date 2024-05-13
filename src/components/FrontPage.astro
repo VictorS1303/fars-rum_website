@@ -1,34 +1,59 @@
 ---
 import Section from "../components/Section.astro";
 import Logo from "../components/Logo.astro";
-import OpenMenuButton from '../components/OpenMenuButton.astro'
+import OpenMenuButton from "../components/OpenMenuButton.astro";
 ---
 
 <Section class="front-page" id="front_page">
     <div class="container front-page-container">
         <Logo isFaded={false} />
         <p>
-            Dine syv musikalske tjenere, der holder dig beskæftiget til ethvert
+            Dine syv musikalske tjenere, <br /> der holder dig beskæftiget til ethvert
             arrangement
         </p>
 
-        <OpenMenuButton openMenuButtonText="Åbn Menu"/>
+        <OpenMenuButton openMenuButtonText="Åbn Menu" />
     </div>
 </Section>
 
-
 <style>
-    .container.front-page-container
-    {
+    .container.front-page-container {
         display: flex;
     }
 
-    .container.front-page-container p
-    {
-        font-family: 'Roboto', sans-serif;
+    .container.front-page-container p {
+        font-family: "Roboto", sans-serif;
         position: absolute;
-        top: 63%;
-        text-align: center;
+        top: 65%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        white-space: wrap;
+        font-size: var(--paragraph-font-mobile-size);
+        margin: auto;
         font-style: italic;
+        text-align: center;
+        width: 400px;
+        padding: 15px;
+        transition:
+            top 0.2s ease-in,
+            opacity 0.2s ease-in;
+    }
+
+    .container.front-page-container.opened {
+        top: -400%;
+        opacity: 0;
+        pointer-events: none;
+        transition:
+            top 0.2s ease-in,
+            opacity 0.2s ease-in;
+    }
+
+    @media screen and (min-width: 768px) {
+        .container.front-page-container p
+        {
+            font-size: var(--paragraph-font-desktop-size);
+            top: 66%;
+            width: 450px;
+        }
     }
 </style>
