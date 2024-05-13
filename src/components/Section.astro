@@ -1,11 +1,10 @@
 ---
+import Logo from '../components/Logo.astro'
 const {className, id} = Astro.props
 ---
 
 <section class={className} id={id}>
-    <div class="container section-container">
-        <slot />
-    </div>
+    <div class="container section-container"></div>
 </section>
 
 <style>
