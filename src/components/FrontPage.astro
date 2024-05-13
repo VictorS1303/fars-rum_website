@@ -1,8 +1,34 @@
 ---
-import Section from '../components/Section.astro'
-import Logo from '../components/Logo.astro'
+import Section from "../components/Section.astro";
+import Logo from "../components/Logo.astro";
+import OpenMenuButton from '../components/OpenMenuButton.astro'
 ---
 
 <Section class="front-page" id="front_page">
-    <Logo isFaded={false}/>
+    <div class="container front-page-container">
+        <Logo isFaded={false} />
+        <p>
+            Dine syv musikalske tjenere, der holder dig beskæftiget til ethvert
+            arrangement
+        </p>
+
+        <OpenMenuButton openMenuButtonText="Åbn Menu"/>
+    </div>
 </Section>
+
+
+<style>
+    .container.front-page-container
+    {
+        display: flex;
+    }
+
+    .container.front-page-container p
+    {
+        font-family: 'Roboto', sans-serif;
+        position: absolute;
+        top: 63%;
+        text-align: center;
+        font-style: italic;
+    }
+</style>
