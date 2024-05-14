@@ -1,68 +1,57 @@
-<div class="card waiter-card" id="waiter_card">
-    <img
-        class="image waiter-image"
-        id="waiter_image"
-        src="../avatars/avatar_test_image.jpg"
-        alt="waiter_image"
-    />
-    <div class="container name-container">
-        <h3 class="civil-name" id="civil_name">Jumelo</h3>
-        <h3 class="artist-name" id="artist_name">Samuel Himmelstrup</h3>
-    </div>
-</div>
-<div class="card waiter-card" id="waiter_card">
-    <img
-        class="image waiter-image"
-        id="waiter_image"
-        src="../avatars/avatar_test_image.jpg"
-        alt="waiter_image"
-    />
-    <div class="container name-container">
-        <h3 class="civil-name" id="civil_name">Jumelo</h3>
-        <h3 class="artist-name" id="artist_name">Samuel Himmelstrup</h3>
-    </div>
-</div>
-<div class="card waiter-card" id="waiter_card">
-    <img
-        class="image waiter-image"
-        id="waiter_image"
-        src="../avatars/avatar_test_image.jpg"
-        alt="waiter_image"
-    />
-    <div class="container name-container">
-        <h3 class="civil-name" id="civil_name">Jumelo</h3>
-        <h3 class="artist-name" id="artist_name">Samuel Himmelstrup</h3>
-    </div>
-</div>
-<div class="card waiter-card" id="waiter_card">
-    <img
-        class="image waiter-image"
-        id="waiter_image"
-        src="../avatars/avatar_test_image.jpg"
-        alt="waiter_image"
-    />
-    <div class="container name-container">
-        <h3 class="civil-name" id="civil_name">Jumelo</h3>
-        <h3 class="artist-name" id="artist_name">Samuel Himmelstrup</h3>
-    </div>
-</div>
-<div class="card waiter-card" id="waiter_card">
-    <img
-        class="image waiter-image"
-        id="waiter_image"
-        src="../avatars/avatar_test_image.jpg"
-        alt="waiter_image"
-    />
-    <div class="container name-container">
-        <h3 class="civil-name" id="civil_name">Jumelo</h3>
-        <h3 class="artist-name" id="artist_name">Samuel Himmelstrup</h3>
-    </div>
-</div>
+---
+const waiterImage = ["../avatars/avatar_test_image.jpg", "../avatars/avatar_test_image.jpg", "../avatars/avatar_test_image.jpg", "../avatars/avatar_test_image.jpg", "../avatars/avatar_test_image.jpg", "../avatars/avatar_test_image.jpg", "../avatars/avatar_test_image.jpg"];
+const artistName = [
+    "Jumelo",
+    "HejMahn",
+    "Mælk",
+    "PastorPaa",
+    "Smøren",
+    "Stranders",
+    "Julle",
+];
+const civilName = [
+    "Samuel Himmelstrup",
+    "Ramzi Qader",
+    "Mikkel Deleuran",
+    "Simon Mortensen",
+    "Søren Dahl",
+    "Anders Pedersen",
+    "Julian Falck",
+];
 
+const waiterCards = artistName.map((artistName, index) =>
+({
+    waiterImage: waiterImage[index],
+    artistName: artistName,
+    civilName: civilName[index],
+}));
+---
+
+<div class="container waiter-cards-container">
+    {
+        waiterCards.map((waiterCard) => (
+            <div class="card waiter-card" id="waiter_card">
+                <img
+                    class="image waiter-image"
+                    id="waiter_image"
+                    src={waiterCard.waiterImage}
+                    alt="waiter_image"
+                />
+                <div class="container name-container">
+                    <p class="civil-name" id="civil_name">
+                        {waiterCard.civilName}
+                    </p>
+                    <p class="artist-name" id="artist_name">
+                        {waiterCard.artistName}
+                    </p>
+                </div>
+            </div>
+        ))
+    }
+</div>
 
 <style>
-    .card.waiter-card
-    {
+    .card.waiter-card {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -72,10 +61,16 @@
         height: 250px;
         width: 200px;
         background-color: var(--card-background-color);
+        z-index: 4000;
+        cursor: pointer;
     }
 
-    .card.waiter-card img
+    .card.waiter-card:not(:last-child)
     {
+        margin-bottom: 20px;
+    }
+
+    .card.waiter-card img {
         height: 100px;
         width: 100px;
         object-fit: cover;
@@ -83,33 +78,35 @@
         border: 2px solid var(--border-color);
     }
 
-    .card.waiter-card .container.name-container
-    {
+    .card.waiter-card .container.name-container {
         color: var(--secondary-text-color);
         margin-top: 20px;
         letter-spacing: 1px;
         overflow: hidden;
     }
 
-    .card.waiter-card .container.name-container h3:first-child
+    .card.waiter-card .container.name-container p
     {
-        transition: transform .4s ease-in;
+        font-size: var(--primary-heading-mobile-font-size);
+        font-weight: var(--paragraph-font-weight);
+        padding: 0 20px;
     }
 
-    .card.waiter-card:hover .container.name-container h3:first-child
-    {
-        transform: translateY(-100px);
-        transition: transform .4s ease-in;
+    .card.waiter-card .container.name-container p:first-child {
+        transition: transform 0.4s ease-in;
     }
-    
-    .card.waiter-card .container.name-container h3:last-child
-    {
-        transform: translateY(100px);
-        transition: transform .4s ease-in;
+
+    .card.waiter-card:hover .container.name-container p:first-child {
+        transform: translateY(-50px);
+        transition: transform 0.4s ease-in;
     }
-    .card.waiter-card:hover .container.name-container h3:last-child
-    {
-        transform: translateY(-30px);
-        transition: transform .4s ease-in;
+
+    .card.waiter-card .container.name-container p:last-child {
+        transform: translateY(50px);
+        transition: transform 0.4s ease-in;
+    }
+    .card.waiter-card:hover .container.name-container p:last-child {
+        transform: translateY(-25px);
+        transition: transform 0.4s ease-in;
     }
 </style>
