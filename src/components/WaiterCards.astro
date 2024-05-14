@@ -34,6 +34,8 @@ const waiterCards = artistName.map((artistName, index) => ({
 }));
 ---
 
+
+
 <div class="container waiter-cards-container">
     {
         waiterCards.map((waiterCard) => (
@@ -59,6 +61,7 @@ const waiterCards = artistName.map((artistName, index) => ({
 
 <style>
     .container.waiter-cards-container {
+        position: relative;
         display: grid;
         grid-template-columns: 1fr;
         justify-content: center;

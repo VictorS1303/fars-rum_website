@@ -1,0 +1,44 @@
+<div class="waiter-modal-container">
+    <div class="container waiter-modal-inner-container">
+        <img src="../avatars/avatar_test_image.jpg" class="waiter-modal-image" id="waiter_modal_image" alt="waiter_modal_image">
+    </div>
+</div>
+
+<style>
+    .waiter-modal-container {
+        display: grid;
+        place-items: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: var(--modal-background-color);
+        height: 80%;
+        width: 90%;
+        z-index: 5000;
+    }
+
+    .container.waiter-modal-inner-container
+    {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 98%;
+        width: 98%;
+        border: 2px solid var(--border-color);
+        box-shadow: var(--box-shadow);
+    }
+
+    .waiter-modal-container .container.waiter-modal-inner-container img.waiter-modal-image
+    {
+        position: absolute;
+        top: 7%;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 150px;
+        width: 150px;
+        border-radius: calc(var(--base-border-radius) * 50);
+        object-fit: cover;
+    }
+</style>
