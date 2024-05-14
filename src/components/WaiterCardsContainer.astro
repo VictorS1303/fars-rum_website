@@ -1,22 +1,40 @@
 ---
 import Section from "./Section.astro";
+import Logo from "./Logo.astro";
+import WaiterCards from "./WaiterCards.astro";
 ---
 
 <Section class="waiter-cards-container" id="waiter_cards_container">
+    <Logo isFaded={true} />
+    <header>
+        <h1>Tjenere</h1>
+    </header>
     <div class="container waiter-cards-container" id="waiter_cards_container">
-        <p>Hey!</p>
+        <WaiterCards/>
     </div>
 </Section>
 
 <style>
     .container.waiter-cards-container {
-        position: absolute;
-        top: 50%;
+        display: grid;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 20px;
+        height: 80vh;
+        overflow-x: hidden;
+    }
+
+    header h1
+    {
+        position: relative;
         left: 50%;
-        transform: translate(-50%, -50%);
-        border: 2px solid #333;
-        height: 95%;
-        width: 90%;
-        z-index: 9000;
+        transform: translateX(-50%);
+        margin-top: 30px;
+        color: var(--heading-color);
+        text-transform: uppercase;
+        text-align: center;
+        border-bottom: 2px solid var(--border-color);
+        width: fit-content;
+        font-size: var(--primary-heading-mobile-font-size);
     }
 </style>
