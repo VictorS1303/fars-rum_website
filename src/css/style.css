@@ -61,6 +61,11 @@ h1, h2, h3
     font-family: 'headingsFont';
 }
 
+p
+{
+    font-family: 'Roboto', sans-serif;
+}
+
 button
 {
     background-color: transparent;
