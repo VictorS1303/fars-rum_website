@@ -17,6 +17,7 @@ import OpenMenuButton from "../components/OpenMenuButton.astro";
 </Section>
 
 <style>
+
     .container.front-page-container p
     {
         font-family: "Roboto", sans-serif;
@@ -37,9 +38,10 @@ import OpenMenuButton from "../components/OpenMenuButton.astro";
             opacity 0.2s ease-in;
     }
 
+
     .container.front-page-container.opened
     {
-        top: -400%;
+        transform: translateY(-300px);
         opacity: 0;
         pointer-events: none;
         z-index: -5000;
