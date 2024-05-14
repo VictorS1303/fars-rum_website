@@ -1,5 +1,13 @@
 ---
-const waiterImage = ["../avatars/avatar_test_image.jpg", "../avatars/avatar_test_image.jpg", "../avatars/avatar_test_image.jpg", "../avatars/avatar_test_image.jpg", "../avatars/avatar_test_image.jpg", "../avatars/avatar_test_image.jpg", "../avatars/avatar_test_image.jpg"];
+const waiterImage = [
+    "../avatars/avatar_test_image.jpg",
+    "../avatars/avatar_test_image.jpg",
+    "../avatars/avatar_test_image.jpg",
+    "../avatars/avatar_test_image.jpg",
+    "../avatars/avatar_test_image.jpg",
+    "../avatars/avatar_test_image.jpg",
+    "../avatars/avatar_test_image.jpg",
+];
 const artistName = [
     "Jumelo",
     "HejMahn",
@@ -19,8 +27,7 @@ const civilName = [
     "Julian Falck",
 ];
 
-const waiterCards = artistName.map((artistName, index) =>
-({
+const waiterCards = artistName.map((artistName, index) => ({
     waiterImage: waiterImage[index],
     artistName: artistName,
     civilName: civilName[index],
@@ -51,6 +58,13 @@ const waiterCards = artistName.map((artistName, index) =>
 </div>
 
 <style>
+    .container.waiter-cards-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-content: center;
+        align-items: center;
+    }
+
     .card.waiter-card {
         display: flex;
         flex-direction: column;
@@ -62,12 +76,8 @@ const waiterCards = artistName.map((artistName, index) =>
         width: 200px;
         background-color: var(--card-background-color);
         z-index: 4000;
+        margin-bottom: 30px;
         cursor: pointer;
-    }
-
-    .card.waiter-card:not(:last-child)
-    {
-        margin-bottom: 20px;
     }
 
     .card.waiter-card img {
@@ -85,8 +95,7 @@ const waiterCards = artistName.map((artistName, index) =>
         overflow: hidden;
     }
 
-    .card.waiter-card .container.name-container p
-    {
+    .card.waiter-card .container.name-container p {
         font-size: var(--primary-heading-mobile-font-size);
         font-weight: var(--paragraph-font-weight);
         padding: 0 20px;
@@ -108,5 +117,16 @@ const waiterCards = artistName.map((artistName, index) =>
     .card.waiter-card:hover .container.name-container p:last-child {
         transform: translateY(-25px);
         transition: transform 0.4s ease-in;
+    }
+
+    @media screen and (min-width: 768px) {
+        
+        .container.waiter-cards-container {
+            width: 100%;
+            grid-template-columns: repeat(4, 1fr);
+            justify-content: space-between;
+            align-content: center;
+            gap: 75px;
+        }
     }
 </style>
