@@ -1,6 +1,11 @@
+---
+import WaiterInfoCardsContainer from './WaiterInfoCardsContainer.astro'
+---
+
 <div class="waiter-modal-container">
     <div class="container waiter-modal-inner-container">
         <img src="../avatars/avatar_test_image.jpg" class="waiter-modal-image" id="waiter_modal_image" alt="waiter_modal_image">
+        <WaiterInfoCardsContainer/>
     </div>
 </div>
 
@@ -16,6 +21,7 @@
         height: 80%;
         width: 90%;
         z-index: 5000;
+        overflow: hidden;
     }
 
     .container.waiter-modal-inner-container
