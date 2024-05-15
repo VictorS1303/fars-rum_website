@@ -26,6 +26,13 @@ import WaiterModalCloseButton from './WaiterModalCloseButton.astro'
         overflow: hidden;
     }
 
+    .waiter-modal-container.opened
+    {
+        top: 50%;
+        opacity: 1;
+        pointer-events: all;
+    }
+
     .waiter-modal-container.closed
     {
         top: -100%;
