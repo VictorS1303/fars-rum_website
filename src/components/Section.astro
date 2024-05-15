@@ -27,12 +27,27 @@ const {className, id} = Astro.props
         height: 98vh;
         width: 98vw;
         border: 2px solid var(--border-color);
-        transition: opacity .3s ease-in .4s;
     }
-    section .container.section-container.active
+
+    /* section:nth-child(1)
     {
-        opacity: 1;
-        z-index: 50000;
-        transition: opacity .3s ease-in .4s;
-    }
+        z-index: 30000;
+    } */
+
+    /* section:nth-child(2)
+    {
+        z-index: 20000;
+    } */
 </style>
+
+<script>
+    const sectionContainers = document.querySelectorAll('.section-container')
+
+    window.addEventListener('load', () =>
+    {
+        sectionContainers.forEach((sectionContainer) =>
+        {
+            sectionContainer.classList.remove('active')
+        })
+    })
+</script>
