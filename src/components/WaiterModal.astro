@@ -3,7 +3,7 @@ import WaiterInfoCardsContainer from './WaiterInfoCardsContainer.astro'
 import WaiterModalCloseButton from './WaiterModalCloseButton.astro'
 ---
 
-<div class="waiter-modal-container">
+<div class="waiter-modal-container" id="waiter_modal_container">
     <WaiterModalCloseButton/>
     <div class="container waiter-modal-inner-container">
         <img src="../avatars/avatar_test_image.jpg" class="waiter-modal-image" id="waiter_modal_image" alt="waiter_modal_image">
@@ -24,6 +24,14 @@ import WaiterModalCloseButton from './WaiterModalCloseButton.astro'
         width: 90%;
         z-index: 5000;
         overflow: hidden;
+    }
+
+    .waiter-modal-container.closed
+    {
+        top: -100%;
+        opacity: 0;
+        pointer-events: none;
+        transition: .4s ease-in;
     }
 
     .container.waiter-modal-inner-container
