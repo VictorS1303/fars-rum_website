@@ -22,6 +22,6 @@
     function closeWaiterModal(e: any)
     {
         console.log(123)
-        waiterModal.classList.add('closed')
+        e.target.closest('.waiter-modal-container').classList.remove('opened')
     }
 </script>
