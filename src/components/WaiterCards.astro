@@ -138,3 +138,19 @@ const waiterCards = artistName.map((artistName, index) => ({
         }
     }
 </style>
+
+
+<script>
+    const waiterModalContainer = document.querySelector('.waiter-modal-container')
+    const waiterCardsContainer = document.querySelector('.waiter-cards-container')
+
+    waiterCardsContainer.addEventListener('click',  (e) => openWaiterModal(e))
+
+    function openWaiterModal(e: any)
+    {
+        if(e.target.matches('.card.waiter-card'))
+        {
+            waiterModalContainer.classList.add('opened')
+        }
+    }
+</script>

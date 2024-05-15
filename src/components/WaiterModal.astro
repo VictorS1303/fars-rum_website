@@ -16,7 +16,7 @@ import WaiterModalCloseButton from './WaiterModalCloseButton.astro'
         display: grid;
         place-items: center;
         position: absolute;
-        top: 50%;
+        top: -50%;
         left: 50%;
         transform: translate(-50%, -50%);
         background-color: var(--modal-background-color);
@@ -24,6 +24,9 @@ import WaiterModalCloseButton from './WaiterModalCloseButton.astro'
         width: 90%;
         z-index: 5000;
         overflow: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transition: .4s ease-in;
     }
 
     .waiter-modal-container.opened
@@ -31,14 +34,6 @@ import WaiterModalCloseButton from './WaiterModalCloseButton.astro'
         top: 50%;
         opacity: 1;
         pointer-events: all;
-    }
-
-    .waiter-modal-container.closed
-    {
-        top: -100%;
-        opacity: 0;
-        pointer-events: none;
-        transition: .4s ease-in;
     }
 
     .container.waiter-modal-inner-container
@@ -76,3 +71,5 @@ import WaiterModalCloseButton from './WaiterModalCloseButton.astro'
     }
  
 </style>
+
+
