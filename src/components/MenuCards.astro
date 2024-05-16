@@ -1,0 +1,162 @@
+<!-- ---
+const albumCovers = [
+    "public/album_covers/letavaer_liiglad.webp",
+    "public/album_covers/solskin_bag_sky.webp",
+    "public/album_covers/sommer_ep.webp",
+    "public/album_covers/stadig_dum.webp",
+];
+---
+
+<div class="container cards-container">
+    <div class="container card-container">
+        <div class="card" id="card">
+            <div class="card-text">
+                <header>
+                    <h3>2015</h3>
+                </header>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Fugiat tempora unde excepturi! Omnis, sunt laborum. Officiis
+                    voluptas magnam quae, dolore incidunt repellendus laboriosam
+                    tempore numquam nisi minima sint temporibus. A iusto debitis
+                    voluptatum, doloribus nisi odio earum dolorem. Nesciunt
+                    quidem, reiciendis hic nihil voluptates amet temporibus?
+                    Perferendis dolor voluptates commodi, ipsa eos illum natus
+                    unde, quasi quo aut dignissimos? Praesentium, quos. Iste,
+                    sunt porro asperiores iure quasi, eaque itaque quaerat
+                    maiores minus eos animi quia voluptas perspiciatis rem vel
+                    quae beatae nesciunt repudiandae natus necessitatibus
+                    laboriosam voluptate cumque tenetur amet. Exercitationem hic
+                    maxime modi! Mollitia velit dolorum quae eius nihil!
+                </p>
+            </div>
+            <img src="public/album_covers/letavaer_liiglad.webp" alt="" />
+        </div>
+    </div>
+    <div class="container card-container">
+        <div class="card" id="card">
+            <div class="card-text">
+                <header>
+                    <h3>2015</h3>
+                </header>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Fugiat tempora unde excepturi! Omnis, sunt laborum. Officiis
+                    voluptas magnam quae, dolore incidunt repellendus laboriosam
+                    tempore numquam nisi minima sint temporibus. A iusto debitis
+                    voluptatum, doloribus nisi odio earum dolorem. Nesciunt
+                    quidem, reiciendis hic nihil voluptates amet temporibus?
+                    Perferendis dolor voluptates commodi, ipsa eos illum natus
+                    unde, quasi quo aut dignissimos? Praesentium, quos. Iste,
+                    sunt porro asperiores iure quasi, eaque itaque quaerat
+                    maiores minus eos animi quia voluptas perspiciatis rem vel
+                    quae beatae nesciunt repudiandae natus necessitatibus
+                    laboriosam voluptate cumque tenetur amet. Exercitationem hic
+                    maxime modi! Mollitia velit dolorum quae eius nihil!
+                </p>
+            </div>
+            <img src="public/album_covers/letavaer_liiglad.webp" alt="" />
+        </div>
+    </div>
+    <div class="container card-container">
+        <div class="card" id="card">
+            <div class="card-text">
+                <header>
+                    <h3>2015</h3>
+                </header>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Fugiat tempora unde excepturi! Omnis, sunt laborum. Officiis
+                    voluptas magnam quae, dolore incidunt repellendus laboriosam
+                    tempore numquam nisi minima sint temporibus. A iusto debitis
+                    voluptatum, doloribus nisi odio earum dolorem. Nesciunt
+                    quidem, reiciendis hic nihil voluptates amet temporibus?
+                    Perferendis dolor voluptates commodi, ipsa eos illum natus
+                    unde, quasi quo aut dignissimos? Praesentium, quos. Iste,
+                    sunt porro asperiores iure quasi, eaque itaque quaerat
+                    maiores minus eos animi quia voluptas perspiciatis rem vel
+                    quae beatae nesciunt repudiandae natus necessitatibus
+                    laboriosam voluptate cumque tenetur amet. Exercitationem hic
+                    maxime modi! Mollitia velit dolorum quae eius nihil!
+                </p>
+            </div>
+            <img src="public/album_covers/letavaer_liiglad.webp" alt="" />
+        </div>
+    </div>
+</div>
+
+<style>
+  
+    .container.cards-container {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        height: 75%;
+        overflow-x: scroll;
+        margin-top: 30px;
+        padding-bottom: 50px;
+    }
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 60px;
+    }
+
+    .card p
+    {
+        font-size: var(--paragraph-mobile-font-size);
+    }
+
+    .card img {
+        height: 150px;
+        width: 150px;
+        border-radius: calc(var(--base-border-radius) * 50);
+        margin: 50px auto;
+    }
+
+    @media screen and (min-width: 1200px) {
+        .container.cards-container {
+            height: 100%;
+            overflow: hidden; 
+            margin-top: 50px;
+            padding: 0 60px;
+        }
+
+        .card {
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        
+        .card p
+        {
+           font-size: var(--paragraph-desktop-font-size);
+        }
+
+        .card .card-text {
+            width: 50%;
+        }
+
+        .card-container .card img {
+            margin: 0 100px;
+        }
+
+        .card-container:nth-child(odd) .card img
+        {
+            transform: rotate(30deg);
+        }
+
+        .card-container:nth-child(even) .card img {
+            order: -1;
+            transform: rotate(-30deg);
+        }
+
+        .card-container:nth-child(even) .card {
+            text-align: right;
+            margin: 40px 0;
+        }
+    }
+</style> -->

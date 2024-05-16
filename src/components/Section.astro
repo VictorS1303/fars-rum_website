@@ -14,7 +14,7 @@ const {className, id} = Astro.props
     {
         position: relative;
         background-color: var(--section-background-color);
-        height: 100vh;
+        height: 1chat00vh;
         width: 100vw;
     }
 
@@ -27,17 +27,18 @@ const {className, id} = Astro.props
         height: 98vh;
         width: 98vw;
         border: 2px solid var(--border-color);
+        overflow-x: hidden;
     }
 
-    section:nth-child(1)
+    /* section:nth-child(1)
     {
         z-index: 30000;
-    }
+    } */
 
-    section:nth-child(2)
+    /* section:nth-child(2)
     {
         z-index: 20000;
-    }
+    } */
 
     section.active
     {

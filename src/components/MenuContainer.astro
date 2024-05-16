@@ -1,0 +1,28 @@
+---
+import Section from "./Section.astro";
+import MenuCards from "./MenuCards.astro";
+import Logo from "./Logo.astro";
+---
+
+<Section class="menu-container" id="menu_section">
+    <Logo isFaded={true} />
+    <header>
+        <h1>MENUEN</h1>
+    </header>
+    <MenuCards />
+</Section>
+
+<style>
+    header h1 {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 30px;
+        color: var(--heading-color);
+        text-transform: uppercase;
+        text-align: center;
+        border-bottom: 2px solid var(--border-color);
+        width: fit-content;
+        font-size: var(--primary-heading-mobile-font-size);
+    }
+</style>
