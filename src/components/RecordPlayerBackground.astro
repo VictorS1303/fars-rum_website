@@ -1,0 +1,28 @@
+---
+import Turntable from './Turntable.astro';
+import RecordPlayerControlButtonsContainer from './RecordPlayerControlButtonsContainer.astro';
+---
+
+<div class="record-player-background" id="record_player_background">
+    <Turntable/>
+    <RecordPlayerControlButtonsContainer/>
+</div>
+
+
+<style>
+    .record-player-background
+    {
+        position: relative;
+        background-color: var(--record-player-background-color);
+        height: 450px;
+        width: 275px;
+    }
+
+    @media screen and (min-width: 768px)
+    {
+        .record-player-background
+        {
+            width: 600px;
+        }
+    }
+</style>

@@ -1,0 +1,75 @@
+---
+const controlButtonNames = ['fa-solid fa-play', 'fa-solid fa-stop'];
+
+const controlButtons = controlButtonNames.map((controlButtonName) => ({
+    controlButton: controlButtonName
+}));
+
+console.log(controlButtons);
+---
+
+<div class="control-buttons-container" id="control-buttons-container">
+    {controlButtons.map((controlButton) => (
+        <i class={controlButton.controlButton}></i> 
+    ))}
+</div>
+
+<style>
+    .control-buttons-container
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 100%;
+        gap: 20px;
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 30px;
+        width: 100px;
+        font-size: 25px;
+        color: var(--record-player-control-buttons-color);
+        cursor: pointer;
+    }
+
+    @media screen and (min-width: 768px)
+    {   
+        .control-buttons-container
+        {
+           left: 90%;
+           bottom: 0px;
+        }
+    }
+</style>
+
+<script>
+    const controlButtonsContainer = document.querySelector('.control-buttons-container')
+    const currentAlbumImage = document.querySelector('#current_album_image') as HTMLElement
+
+    controlButtonsContainer.addEventListener('click', (e) => playAudio(e))
+
+    function playAudio(e: any)
+    {
+        
+        updatePlayPauseIconState(e)
+    }
+
+    function updatePlayPauseIconState(e: any)
+    {
+
+        if(e.target.matches('.fa-play'))
+        {
+            e.target.classList.remove('fa-play')
+            e.target.classList.add('fa-pause')
+            currentAlbumImage.classList.add('playing')
+        }
+        else
+        {
+            e.target.classList.add('fa-play')
+            e.target.classList.remove('fa-pause')
+            currentAlbumImage.classList.remove('playing')
+        }
+    }
+</script>

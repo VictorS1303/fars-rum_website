@@ -1,0 +1,44 @@
+---
+import RecordPlayerBackground from './RecordPlayerBackground.astro'
+---
+
+<div class="turntable-modal-container" id="turntable_modal_container">
+    <i class="fas fa-times modal-close-button" id="turntable_modal_close_button"></i>
+    <div class="container turntable-modal-inner-container">
+        <RecordPlayerBackground />
+    </div>
+</div>
+
+
+<style>
+    .turntable-modal-container
+    {
+        display: grid;
+        place-items: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: var(--modal-background-color);
+        height: 80%;
+        width: 90%;
+        z-index: 5000;
+        overflow: hidden;
+        opacity: 1;
+        pointer-events: all;
+        border: 2px solid var(--border-color);
+        box-shadow: var(--box-shadow);
+        transition: .4s ease-in;
+    }
+
+    .modal-close-button
+    {
+        font-size: 20px;
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        color: var(--border-color);
+        cursor: pointer;
+        z-index: 10000;
+    }
+</style>

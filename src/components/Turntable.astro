@@ -1,0 +1,87 @@
+---
+import Logo from "./Logo.astro";
+---
+
+<div class="turntable" id="turntable">
+    <div class="turntable-logo">
+        <Logo isFaded={true} />
+        <div class="container current-album-container">
+            <div class="hole"></div>
+            <img
+                src="public/album_covers/letavaer_liiglad.webp"
+                class="current-album-image"
+                id="current_album_image"
+            />
+        </div>
+    </div>
+</div>
+
+<style>
+    .turntable {
+        background-color: #111;
+        height: 200px;
+        width: 200px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: calc(var(--base-border-radius) * 50);
+        border: 2px solid var(--border-color);
+    }
+    .turntable-logo {
+        height: 150px;
+        width: 150px;
+    }
+
+  
+    .current-album-image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 190px;
+        width: 190px;
+        border-radius: calc(var(--base-border-radius) * 50);
+    }
+
+    .hole
+    {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 10px;
+        width: 10px;
+        border-radius: calc(var(--base-border-radius) * 50);
+        background-color: #231f20;
+        box-shadow: inset var(--box-shadow);
+        z-index: 20000;
+    }
+    .playing {
+        top: 10px;
+        left: 7px;
+        transform: translate(-50%, -50%);
+        animation: rotate 3s linear infinite;
+    }
+
+    @keyframes rotate {
+        0% {
+            transform: rotate(0);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        .turntable {
+            height: 300px;
+            width: 300px;
+        }
+
+        .current-album-image {
+            height: 280px;
+            width: 280px;
+        }
+    }
+</style>
