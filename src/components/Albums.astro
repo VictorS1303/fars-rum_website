@@ -1,0 +1,35 @@
+---
+const albumTitles = ['public/album_covers/letavaer_liiglad', 'public/album_covers/solskin_bag_sky', 'public/album_covers/sommer_ep', 'public/album_covers/stadig_dum']
+
+const albums = albumTitles.map(albumTitle => ({
+    albumImage: `${albumTitle}.webp`
+}))
+---
+
+<div class="container album-covers-container">
+    {albums.map((album) => (
+        <img
+            class="image album-image"
+            id="album_image"
+            src={album.albumImage}.webp
+            alt="album_image"
+        />
+    ))}
+</div>
+
+<style>
+    .container.album-covers-container
+    {
+        display: flex;
+        gap: 20px;
+    }
+
+    .container.album-covers-container img
+    {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+        border-radius: calc(var(--base-border-radius) * 50);
+        cursor: pointer;
+    }
+</style>

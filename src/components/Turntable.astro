@@ -3,14 +3,14 @@ import Logo from "./Logo.astro";
 ---
 
 <div class="turntable" id="turntable">
+    <Logo isFaded={true} />
     <div class="turntable-logo">
-        <Logo isFaded={true} />
         <div class="container current-album-container">
             <div class="hole"></div>
             <img
-                src="public/album_covers/letavaer_liiglad.webp"
-                class="current-album-image"
-                id="current_album_image"
+            src=""
+            class="current-album-image"
+            id="current_album_image"
             />
         </div>
     </div>
@@ -42,6 +42,7 @@ import Logo from "./Logo.astro";
         height: 190px;
         width: 190px;
         border-radius: calc(var(--base-border-radius) * 50);
+        z-index: 10000;
     }
 
     .hole

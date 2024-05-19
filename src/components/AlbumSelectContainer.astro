@@ -1,0 +1,47 @@
+---
+import Albums from './Albums.astro'
+---
+
+<div class="container album-select-container">
+    <Albums/>
+</div>
+
+
+<style>
+    .container.album-select-container
+    {
+        position: absolute;
+        top: 88%;
+        height: 50px;
+        width: 275px;
+    }
+
+    .selected-album
+    {
+        border: 2px solid var(--border-color) !important;
+    }
+</style>
+
+<script>
+    const albumSelectContainer = document.querySelector('.album-select-container')
+    const currentAlbumImage = document.querySelector('#current_album_image') as HTMLImageElement
+   
+    albumSelectContainer.addEventListener('click', (e) => selectAlbum(e))
+
+    function selectAlbum(e: any)
+    {
+        if(e.target.matches('.album-image'))
+        {
+            e.target.classList.add('selected-album')
+            
+            
+            updateCurrentAlbumImage(e)
+        }
+    }
+
+    function updateCurrentAlbumImage(e: any)
+    {
+        currentAlbumImage.src = `public/album_covers/${e.target.src}`
+        console.log(currentAlbumImage.src)
+    }
+</script>
