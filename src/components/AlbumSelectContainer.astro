@@ -16,6 +16,11 @@ import Albums from './Albums.astro'
         width: 275px;
     }
 
+    .current-selected-album
+    {
+        border: 2px solid var(--border-color);
+    }
+
     .selected-album
     {
         border: 2px solid var(--border-color) !important;
@@ -24,6 +29,7 @@ import Albums from './Albums.astro'
 
 <script>
     const albumSelectContainer = document.querySelector('.album-select-container')
+    const albumImages = document.querySelectorAll('.album-image')
     const currentAlbumImage = document.querySelector('#current_album_image') as HTMLImageElement
    
     albumSelectContainer.addEventListener('click', (e) => selectAlbum(e))
@@ -41,7 +47,20 @@ import Albums from './Albums.astro'
 
     function updateCurrentAlbumImage(e: any)
     {
-        currentAlbumImage.src = `public/album_covers/${e.target.src}`
-        console.log(currentAlbumImage.src)
+            const srcParts = e.target.src.split('/');
+            const fileName = srcParts[srcParts.length - 1];
+            // Set the new src with the correct path
+            currentAlbumImage.src = `/album_covers/${fileName}`;
+
+            updateCurrentAlbumMiniatureImage(e)
+    }
+
+    function updateCurrentAlbumMiniatureImage(e: any)
+    {
+        if(e.target.matches('.album-image'))
+        {
+            albumImages.forEach((albumImage) => albumImage.style.border = null)
+            e.target.style.border = '2px solid var(--border-color)'
+        }
     }
 </script>
