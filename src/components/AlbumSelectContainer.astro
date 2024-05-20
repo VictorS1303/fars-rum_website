@@ -47,12 +47,12 @@ import Albums from './Albums.astro'
 
     function updateCurrentAlbumImage(e: any)
     {
-            const srcParts = e.target.src.split('/');
-            const fileName = srcParts[srcParts.length - 1];
-            // Set the new src with the correct path
-            currentAlbumImage.src = `/album_covers/${fileName}`;
+        const srcParts = e.target.src.split('/');
+        const fileName = srcParts[srcParts.length - 1];
+        // Set the new src with the correct path
+        currentAlbumImage.src = `/album_covers/${fileName}`;            currentAlbumImage.src = `/album_covers/${fileName}`;
 
-            updateCurrentAlbumMiniatureImage(e)
+        updateCurrentAlbumMiniatureImage(e)
     }
 
     function updateCurrentAlbumMiniatureImage(e: any)

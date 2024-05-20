@@ -1,16 +1,18 @@
 ---
-const controlButtonNames = ['fa-solid fa-play', 'fa-solid fa-stop'];
+const controlButtonNames = ['fa-solid fa-play', 'fa-solid fa-stop']
 
 const controlButtons = controlButtonNames.map((controlButtonName) => ({
     controlButton: controlButtonName
-}));
+}))
 
-console.log(controlButtons);
+
+
+console.log(controlButtons)
 ---
 
 <div class="control-buttons-container" id="control-buttons-container">
     {controlButtons.map((controlButton) => (
-        <i class={controlButton.controlButton}></i> 
+        <i class={controlButton.controlButton}></i>
     ))}
 </div>
 
@@ -45,21 +47,38 @@ console.log(controlButtons);
 </style>
 
 <script>
-    const controlButtonsContainer = document.querySelector('.control-buttons-container')
-    const currentAlbumImage = document.querySelector('#current_album_image') as HTMLElement
+    const controlButtonsContainer = document.querySelector('.control-buttons-container');
+    const currentAlbumImage = document.querySelector('#current_album_image') as HTMLImageElement
+    
+    controlButtonsContainer.addEventListener('click', (e) => toggleAudioPlayState(e));
 
-    controlButtonsContainer.addEventListener('click', (e) => playAudio(e))
+    function toggleAudioPlayState(e: any)
+    {
+        if (e.target.classList.contains('fa-play'))
+        {
+            playAudio(e)
+        }
+        else if(e.target.classList.contains('fa-pause'))
+        {
+            pauseAudio(e)
+        }
+        else if (e.target.classList.contains('fa-stop'))
+        {
+            stopAudio(e)
+        }
+    }
 
+    const albumAudio = document.createElement('audio')
     function playAudio(e: any)
     {
-        
-        updatePlayPauseIconState(e)
+       albumAudio.src = `music/${albumAudio}.mp3`
+       console.log(albumAudio)
+       updatePlayPauseIconState(e)
     }
 
     function updatePlayPauseIconState(e: any)
     {
-
-        if(e.target.matches('.fa-play'))
+        if (e.target.classList.contains('fa-play'))
         {
             e.target.classList.remove('fa-play')
             e.target.classList.add('fa-pause')
@@ -70,6 +89,24 @@ console.log(controlButtons);
             e.target.classList.add('fa-play')
             e.target.classList.remove('fa-pause')
             currentAlbumImage.classList.remove('playing')
+        }
+    }
+
+    function pauseAudio(e: any)
+    {
+        currentAlbumImage.classList.remove('playing')
+        updatePlayPauseIconState(e)
+    }
+
+    function stopAudio(e: any)
+    {
+        if (e.target.classList.contains('fa-stop'))
+        {
+            if(e.target.previousElementSibling.classList.contains('fa-pause'))
+            {
+                e.target.previousElementSibling.classList.remove('fa-pause')
+                e.target.previousElementSibling.classList.add('fa-play') 
+            }
         }
     }
 </script>
