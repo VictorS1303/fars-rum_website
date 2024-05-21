@@ -1,0 +1,46 @@
+---
+const socialMediaIcons = ['fa-brands fa-facebook-f', 'fa-brands fa-instagram', 'fa-brands fa-spotify']
+const href = ['https://www.facebook.com/FarsRum', 'https://www.instagram.com/fars_rum/', 'https://open.spotify.com/artist/38vSwdk33fWEiPYu90OqZ5']
+
+
+const icons = socialMediaIcons.map((socialMediaIcon, index) => ({
+    socialMediaIcon: socialMediaIcon,
+    href: href[index]
+}))
+---
+
+<div class="container social-media-icons-container">
+    {
+        icons.map((icon) => (
+            <a href={icon.href} target="_blank">
+                <i class={icon.socialMediaIcon}></i>
+            </a>
+        ))
+    }
+</div>
+
+<style>
+    .social-media-icons-container
+    {
+        display: flex;
+        gap: 15px;
+        position: absolute;
+        bottom: 15px;
+        left: 20px;
+        width: 100%;
+        font-size: 25px;
+    }
+
+    .social-media-icons-container i
+    {
+        color: var(--icon-color);
+        cursor: pointer;
+        transition: transform .2s ease-in;
+    }
+
+    .social-media-icons-container i:hover
+    {
+        transform: translateY(-2px);
+        transition: transform .2s ease-in;
+    }
+</style>

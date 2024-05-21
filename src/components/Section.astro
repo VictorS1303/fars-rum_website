@@ -1,11 +1,13 @@
 ---
 import Logo from '../components/Logo.astro'
+import SocialMediaIconsContainer from '../components/SocialMediaIconsContainer.astro'
 const {className, id} = Astro.props
 ---
 
 <section class={className} id={id}>
     <div class="container section-container">
         <slot/>
+        <SocialMediaIconsContainer/>
     </div>
 </section>
 
