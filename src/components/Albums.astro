@@ -1,8 +1,11 @@
 ---
+// import AlbumTitle from './AlbumTitle.astro'
+
 const albumTitles = ['public/album_covers/letavaer_liiglad', 'public/album_covers/solskin_bag_sky', 'public/album_covers/sommer_ep', 'public/album_covers/stadig_dum']
 
-const albums = albumTitles.map(albumTitle => ({
-    albumImage: `${albumTitle}.webp`
+
+const albums = albumTitles.map((albumTitle, index) => ({
+    albumImage: `${albumTitle}.webp`,
 }))
 ---
 
@@ -14,8 +17,10 @@ const albums = albumTitles.map(albumTitle => ({
             src={album.albumImage}.webp
             alt="album_image"
         />
+
     ))}
 </div>
+
 
 <style>
     .container.album-covers-container

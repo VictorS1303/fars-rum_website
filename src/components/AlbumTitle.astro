@@ -1,0 +1,47 @@
+---
+const { albumTitle } = Astro.props;
+---
+
+<header class="title album-title" id="album_title">
+    <h1>Album: <span class="album-title-text" id="album_title_text"></span></h1>
+</header>
+
+<style>
+    header.title.album-title h1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+        position: absolute;
+        top: -40%;
+        left: 48.5%;
+        transform: translateX(-50%);
+        font-size: var(--heading-mobile-font-size);
+        color: var(--heading-color);
+    }
+
+    header.title.album-title h1 span {
+        font-family: 'Roboto', sans-serif;
+        white-space: nowrap;
+    }
+
+    @media screen and (min-width: 768px) {
+        header.title.album-title h1 {
+            left: 48.5%;
+        }
+    }
+</style>
+
+<script>
+    const albumContainer = document.querySelector('.album-container'); 
+    const albumTitleText = document.querySelector("#album_title_text");
+    const titles = [ "Letavær Liiglad", "Solskin Bag Sky", "Sommer EP", "Stadig Dum"];
+    
+    albumContainer.addEventListener('click', (e) => updateAlbumTitle(e))
+
+    function updateAlbumTitle(e: any)
+    {
+        
+    }
+</script>
