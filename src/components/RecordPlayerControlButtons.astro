@@ -106,8 +106,8 @@ console.log(controlButtons)
     function pauseAudio(e: any)
     {
         currentAlbumImage.classList.remove('playing')
-        albumAudio.pause()
         updatePlayPauseIconState(e)
+        albumAudio.pause()
     }
 
     function stopAudio(e?: any)
@@ -137,7 +137,6 @@ console.log(controlButtons)
 
     function closeTurntableModal(e: any)
     {
-        albumAudio.pause()
-        updatePlayPauseIconState(e)
+        pauseAudio(e)
     }
 </script>
