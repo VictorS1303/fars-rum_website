@@ -19,7 +19,7 @@ import AlbumSelectContainer from './AlbumSelectContainer.astro'
         display: grid;
         place-items: center;
         position: absolute;
-        top: 50%;
+        top: -50%;
         left: 50%;
         transform: translate(-50%, -50%);
         background-color: var(--modal-background-color);
@@ -27,11 +27,18 @@ import AlbumSelectContainer from './AlbumSelectContainer.astro'
         width: 90%;
         z-index: 5000;
         overflow: hidden;
-        opacity: 1;
+        opacity: 0;
         pointer-events: all;
         border: 2px solid var(--border-color);
         box-shadow: var(--box-shadow);
-        transition: .4s ease-in;
+        transition: top .4s ease-in, opacity .4s ease-in;
+    }
+
+    .turntable-modal-container.opened
+    {
+        top: 50%;
+        opacity: 1;
+        transition: top .4s ease-in, opacity .4s ease-in;
     }
 
     .modal-close-button
@@ -45,3 +52,22 @@ import AlbumSelectContainer from './AlbumSelectContainer.astro'
         z-index: 10000;
     }
 </style>
+
+<script>
+    const turntableContainer = document.querySelector('.turntable-modal-container')
+    const turntableModalCloseButton = document.querySelector('#turntable_modal_close_button')
+
+    window.addEventListener('load', openTurntableModal)
+
+    turntableModalCloseButton.addEventListener('click', (e) => closeTurntableModal(e))
+
+    function openTurntableModal()
+    {
+        turntableContainer.classList.add('opened')
+    }
+
+    function closeTurntableModal()
+    {
+        turntableContainer.classList.remove('opened')
+    }
+</script>

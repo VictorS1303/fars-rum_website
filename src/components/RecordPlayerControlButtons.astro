@@ -47,20 +47,26 @@ console.log(controlButtons)
 </style>
 
 <script>
+    const albumSelectContainer = document.querySelector('.album-select-container')
     const controlButtonsContainer = document.querySelector('.control-buttons-container');
     const currentAlbumImage = document.querySelector('#current_album_image') as HTMLImageElement
+    const albumAudio = document.createElement('audio')
     
     controlButtonsContainer.addEventListener('click', (e) => toggleAudioPlayState(e));
+    albumSelectContainer.addEventListener('click', (e) => changeAlbum(e))
+
 
     function toggleAudioPlayState(e: any)
     {
         if (e.target.classList.contains('fa-play'))
         {
             playAudio(e)
+            albumSelectContainer.style.pointerEvents = 'none'
         }
         else if(e.target.classList.contains('fa-pause'))
         {
             pauseAudio(e)
+            albumSelectContainer.style.pointerEvents = 'all'
         }
         else if (e.target.classList.contains('fa-stop'))
         {
@@ -68,13 +74,7 @@ console.log(controlButtons)
         }
     }
 
-    const albumAudio = document.createElement('audio')
-    function playAudio(e: any)
-    {
-       albumAudio.src = `music/${albumAudio}.mp3`
-       console.log(albumAudio)
-       updatePlayPauseIconState(e)
-    }
+    
 
     function updatePlayPauseIconState(e: any)
     {
@@ -92,9 +92,20 @@ console.log(controlButtons)
         }
     }
 
+    function playAudio(e: any)
+    {
+
+        albumAudio.src = `${currentAlbumImage.src.replace('album_covers', 'music').replace('webp', 'mp3')}`
+        albumAudio.volume = .6
+        albumAudio.play()
+
+        updatePlayPauseIconState(e)
+    }
+
     function pauseAudio(e: any)
     {
         currentAlbumImage.classList.remove('playing')
+        albumAudio.pause()
         updatePlayPauseIconState(e)
     }
 
@@ -107,6 +118,19 @@ console.log(controlButtons)
                 e.target.previousElementSibling.classList.remove('fa-pause')
                 e.target.previousElementSibling.classList.add('fa-play') 
             }
+
+            albumAudio.pause()
+            albumAudio.currentTime = 0
+            
+            resetTurntable()
         }
     }
+
+    function resetTurntable()
+    {
+        currentAlbumImage.src = ''
+        currentAlbumImage.classList.remove('playing')
+        albumSelectContainer.style.pointerEvents = 'all'
+    }
+    
 </script>
