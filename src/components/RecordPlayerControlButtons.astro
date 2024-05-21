@@ -51,9 +51,12 @@ console.log(controlButtons)
     const controlButtonsContainer = document.querySelector('.control-buttons-container');
     const currentAlbumImage = document.querySelector('#current_album_image') as HTMLImageElement
     const albumAudio = document.createElement('audio')
+    const closeTurntableModalBtn = document.querySelector('#turntable_modal_close_button')
+
     
     controlButtonsContainer.addEventListener('click', (e) => toggleAudioPlayState(e));
     albumSelectContainer.addEventListener('click', (e) => changeAlbum(e))
+    closeTurntableModalBtn.addEventListener('click',(e) => closeTurntableModal(e))
 
 
     function toggleAudioPlayState(e: any)
@@ -109,7 +112,7 @@ console.log(controlButtons)
         updatePlayPauseIconState(e)
     }
 
-    function stopAudio(e: any)
+    function stopAudio(e?: any)
     {
         if (e.target.classList.contains('fa-stop'))
         {
@@ -133,4 +136,10 @@ console.log(controlButtons)
         albumSelectContainer.style.pointerEvents = 'all'
     }
     
+
+    function closeTurntableModal(e: any)
+    {
+        albumAudio.pause()
+        updatePlayPauseIconState(e)
+    }
 </script>
