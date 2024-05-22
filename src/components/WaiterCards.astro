@@ -27,31 +27,42 @@ const civilName = [
     "Julian Falck",
 ];
 
-const waiterCards = artistName.map((artistName, index) => ({
-    waiterImage: waiterImage[index],
-    artistName: artistName,
-    civilName: civilName[index],
-}));
+// const waiterCards = artistName.map((artistName, index) => ({
+//     waiterImage: waiterImage[index],
+//     artistName: artistName,
+//     civilName: civilName[index],
+// }));
+
+
+const data = await fetch("https://qftguxwmsqzradjlguhs.supabase.co/rest/v1/artist_cards", {
+    method: "GET",
+    headers: {
+        apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFmdGd1eHdtc3F6cmFkamxndWhzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU1NDIwOTUsImV4cCI6MjAzMTExODA5NX0.uglTx3133whZEgoLakBYoMK3mGTNGEB5OWvUO1H1AWY",
+    }
+}).then(res => res.json())
+.catch((error) => console.log(error))
+
+
+console.log(data)
+
+// const data = await fetch("url",
+// method:"GET",
+
 ---
 
 
 
 <div class="container waiter-cards-container">
     {
-        waiterCards.map((waiterCard) => (
+        data.map((waiterCardsData) => (
             <div class="card waiter-card" id="waiter_card">
-                <img
-                    class="image waiter-image"
-                    id="waiter_image"
-                    src={waiterCard.waiterImage}
-                    alt="waiter_image"
-                />
+                
                 <div class="container name-container">
                     <p class="civil-name" id="civil_name">
-                        {waiterCard.civilName}
+                        {waiterCardsData.civil_name}
                     </p>
                     <p class="artist-name" id="artist_name">
-                        {waiterCard.artistName}
+                        {waiterCardsData.artist_name}
                     </p>
                 </div>
             </div>
