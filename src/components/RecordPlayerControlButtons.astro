@@ -54,8 +54,7 @@ console.log(controlButtons)
     const closeTurntableModalBtn = document.querySelector('#turntable_modal_close_button')
 
     
-    controlButtonsContainer.addEventListener('click', (e) => toggleAudioPlayState(e));
-    albumSelectContainer.addEventListener('click', (e) => changeAlbum(e))
+    controlButtonsContainer.addEventListener('click', (e) => toggleAudioPlayState(e))
     closeTurntableModalBtn.addEventListener('click',(e) => closeTurntableModal(e))
 
 
@@ -73,7 +72,7 @@ console.log(controlButtons)
                 pauseAudio(e);
                 albumSelectContainer.style.pointerEvents = 'all'
                 break
-                
+
             case e.target.classList.contains('fa-stop'):
                 stopAudio(e)
                 break
