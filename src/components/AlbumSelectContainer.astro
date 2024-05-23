@@ -15,16 +15,6 @@ import Albums from './Albums.astro'
         height: 50px;
         width: 275px;
     }
-
-    .current-selected-album
-    {
-        border: 2px solid var(--border-color);
-    }
-
-    .selected-album
-    {
-        border: 2px solid var(--border-color) !important;
-    }
 </style>
 
 <script>
@@ -59,7 +49,7 @@ import Albums from './Albums.astro'
         if(e.target.matches('.album-image'))
         {
             albumImages.forEach((albumImage) => albumImage.style.border = null)
-            e.target.style.border = '2px solid var(--border-color)'
+            e.target.style.classList.add('current-selected-album')
         }
     }
 
