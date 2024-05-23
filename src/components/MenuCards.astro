@@ -6,15 +6,11 @@ import TurntableModal from './TurntableModal.astro'
     <div class="card menu-card" id="menu_card">
         <div class="container card-content-container">
             <header class="card-header" id="card_header">
-                <h1>2015</h1>
+                <h1>2015-2019</h1>
             </header>
             <p class="text card-text" id="card_text">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Aperiam minima placeat consectetur labore nemo cum nisi optio
-                vitae ea beatae perspiciatis, recusandae deserunt praesentium.
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Aperiam minima placeat consectetur labore nemo cum nisi optio
-                vitae ea beatae perspiciatis, recusandae deserunt praesentium.
+                Fars Rum version 1.0 opstod som den kvartet af fire brunstige handyr - tre fra en vis by i Nordsjælland (gæt selv hvilken) og en fra Aarhus - der er klar til at sparke din fest i gang og servere alt godt fra deres musikalske menukort.
+                De vil have dig til at flappe med dine vinger, prøve at score din nabopige, og have dig til at forstå, at du stadig er (rigtig) dum. Men vigtigst af alt vil de bare gerne danse, og det skal helst være med dig.
             </p>
         </div>
         <img src="../../public/album_covers/letavaer_liiglad.webp" alt="" />
@@ -23,35 +19,31 @@ import TurntableModal from './TurntableModal.astro'
     <div class="card menu-card" id="menu_card">
         <div class="container card-content-container">
             <header class="card-header" id="card_header">
-                <h1>2015</h1>
+                <h1>Pause</h1>
             </header>
             <p class="text card-text" id="card_text">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Aperiam minima placeat consectetur labore nemo cum nisi optio
-                vitae ea beatae perspiciatis, recusandae deserunt praesentium.
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Aperiam minima placeat consectetur labore nemo cum nisi optio
-                vitae ea beatae perspiciatis, recusandae deserunt praesentium.
+                I 2020 var de fire brunstige handyr nødt til at indse, at brunsten var gået lidt af dem, hvorfor de trak stikket.
+                Dette blev brugt på at få styr på privaten, af nogle på at øge familien (OK, brunsten var måske ikke helt væk), og andre projekter.
+                Samtidigt blev det også brugt på at revurdere Fars Rum-projektet, men konklusionen blev, som den hele tiden har været, at det skal være humor og at bringe folk sammen, at
+                der kendetegner deres projekt.
             </p>
         </div>
-        <img src="../../public/album_covers/letavaer_liiglad.webp" alt="" />
+        <img src="../../public/album_covers/sommer_ep.webp" alt="" />
     </div>
 
     <div class="card menu-card" id="menu_card">
         <div class="container card-content-container">
             <header class="card-header" id="card_header">
-                <h1>2015</h1>
+                <h1>2023</h1>
             </header>
             <p class="text card-text" id="card_text">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Aperiam minima placeat consectetur labore nemo cum nisi optio
-                vitae ea beatae perspiciatis, recusandae deserunt praesentium.
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Aperiam minima placeat consectetur labore nemo cum nisi optio
-                vitae ea beatae perspiciatis, recusandae deserunt <button id="turntable_modal_open_button">praesentium</button>.
+                Her kom Fars Rum version 2.0 tilbage i brunst, og fire var blevet til syv.
+                Deres comeback blev markeret med en comeback-koncert på Loppen, Christiana, og en ny single, Menuen.
+                Hvor længe brunsten holder fremover, vides ikke, men der er garanteret tårnhøjt testosteronniveau,
+                hver gang Fars Rum foretager sig <button class="turntable-modal-open-button" id="turntable_modal_open_button">ting og sager</button>.  
             </p>
         </div>
-        <img src="../../public/album_covers/letavaer_liiglad.webp" alt="" />
+        <img src="../../public/album_covers/solskin_bag_sky.webp" alt="" />
     </div>
 </div>
 
@@ -63,7 +55,7 @@ import TurntableModal from './TurntableModal.astro'
         gap: 40px;
         padding: 0 60px;
         margin-top: 40px;
-        height: 80vh;
+        height: 75vh;
         margin-bottom: 40px;
         overflow-x: scroll;
     }
@@ -93,12 +85,25 @@ import TurntableModal from './TurntableModal.astro'
         height: 150px;
         width: 150px;
     }
+
+    .turntable-modal-open-button
+    {
+        font-family: inherit;
+        font-size: inherit;
+        color: var(--button-color);
+    }
    
+    .turntable-modal-open-button:hover
+    {
+        border-bottom: 2px solid var(--border-color);
+    }
+
     @media screen and (min-width: 768px)
     {
         .container.menu-cards-container
         {
-            gap: 70px;
+            gap: 50px;
+            overflow-x: hidden;
         }
 
         .card.menu-card
@@ -108,6 +113,7 @@ import TurntableModal from './TurntableModal.astro'
 
         .card.menu-card p
         {
+            font-size: var(--paragraph-font-desktop-size);
             width: 60%;
         }
 
