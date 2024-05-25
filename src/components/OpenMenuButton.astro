@@ -13,7 +13,7 @@ const { openMenuButtonText } = Astro.props;
         position: relative;
         font-family: 'Roboto', sans-serif;
         position: absolute;
-        bottom: 0px;
+        bottom: 150px;
         left: 50%;
         transform: translate(-50%, -50%);
         background-color: var(--btn-background-color);
@@ -40,18 +40,21 @@ const { openMenuButtonText } = Astro.props;
         transition: left 0.7s ease-in;
     }
    
+    .open-menu {
+        transform: translateX(-100%);
+        transition: transform .3s ease-in;
+    }
 </style>
 
 <script>
-    const openMenuButton = document.querySelector('#open_menu_button') as HTMLButtonElement;
-    const sectionContainers = document.querySelectorAll('.section-container')
-    const frontPageContainer = document.querySelector('.front-page-container') as HTMLElement;
+    const openMenuButton = document.querySelector('#open_menu_button') as HTMLButtonElement
+    const frontPageContainer = document.querySelector('.front-page-container') as HTMLElement
 
     openMenuButton.addEventListener('click', openMenu)
-
+ 
 
     function openMenu()
     {
-        frontPageContainer.classList.add('opened')
+        frontPageContainer.classList.add('open-menu')
     }
 </script>

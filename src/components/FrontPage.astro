@@ -4,8 +4,8 @@ import Logo from "../components/Logo.astro";
 import OpenMenuButton from "../components/OpenMenuButton.astro";
 ---
 
-<Section class="front-page" id="front_page">
-    <div class="container front-page-container">
+<div class="container front-page-container">
+    <Section class="front-page" id="front_page">
         <Logo isFaded={false} />
         <p>
             Dine syv musikalske tjenere, <br /> der holder dig beskæftiget til ethvert
@@ -13,12 +13,11 @@ import OpenMenuButton from "../components/OpenMenuButton.astro";
         </p>
 
         <OpenMenuButton openMenuButtonText="Åbn Menu" />
-    </div>
-</Section>
+    </Section>
+</div>
 
 <style>
-    .container.front-page-container p
-    {
+    .container.front-page-container p {
         font-family: "Roboto", sans-serif;
         position: absolute;
         top: 65%;
@@ -32,29 +31,14 @@ import OpenMenuButton from "../components/OpenMenuButton.astro";
         width: 400px;
         z-index: 10000;
         padding: 15px;
-        transition:
-            top 0.2s ease-in,
-            opacity 0.2s ease-in;
     }
 
-    .container.front-page-container.opened
-    {
-        top: -400%;
-        opacity: 0;
-        pointer-events: none;
-        z-index: -5000;
-        transition:
-            top 0.2s ease-in,
-            opacity 0.2s ease-in;
-    }
-
-    @media screen and (min-width: 768px)
-    {
-        .container.front-page-container p
-        {
+    @media screen and (min-width: 768px) {
+        .container.front-page-container p {
             font-size: var(--paragraph-font-desktop-size);
             top: 66%;
             width: 450px;
         }
     }
 </style>
+

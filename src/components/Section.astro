@@ -14,10 +14,25 @@ const {className, id} = Astro.props
 <style>
     section
     {
-        position: relative;
+        position: absolute;
         background-color: var(--section-background-color);
-        height: 1chat00vh;
+        height: 100vh;
         width: 100vw;
+    }
+
+    section:nth-child(1)
+    {
+        z-index: 4000;
+    }
+
+    section:nth-child(2)
+    {
+        z-index: 3000;
+    }
+
+    section:nth-child(3)
+    {
+        z-index: 2000;
     }
 
     section .container.section-container
@@ -30,22 +45,9 @@ const {className, id} = Astro.props
         width: 98vw;
         border: 2px solid var(--border-color);
         overflow-x: hidden;
+        pointer-events: all;
     }
 
-    /* section:nth-child(1)
-    {
-        z-index: 30000;
-    } */
-
-    /* section:nth-child(2)
-    {
-        z-index: 20000;
-    } */
-
-    section.active
-    {
-        z-index: 50000;
-    }
 </style>
 
 <script>
