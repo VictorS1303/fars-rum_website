@@ -45,17 +45,3 @@ const { openMenuButtonText } = Astro.props;
         transition: transform .3s ease-in;
     }
 </style>
-
-<script>
-    const openMenuButton = document.querySelector('#open_menu_button') as HTMLButtonElement
-    const frontPageContainer = document.querySelector('.front-page-container') as HTMLElement
-    console.log(frontPageContainer)
-
-    openMenuButton.addEventListener('click', openMenu)
- 
-
-    function openMenu()
-    {
-        frontPageContainer.classList.add('open-menu')
-    }
-</script>
