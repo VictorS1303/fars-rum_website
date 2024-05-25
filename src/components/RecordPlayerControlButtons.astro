@@ -69,12 +69,13 @@ console.log(controlButtons)
                 break
 
             case e.target.classList.contains('fa-pause'):
-                pauseAudio(e);
+                pauseAudio(e)
                 albumSelectContainer.style.pointerEvents = 'all'
                 break
 
             case e.target.classList.contains('fa-stop'):
                 stopAudio(e)
+                albumSelectContainer.style.pointerEvents = 'all'
                 break
         }
 
@@ -91,7 +92,7 @@ console.log(controlButtons)
 
             : (e.target.classList.add('fa-play'), 
                e.target.classList.remove('fa-pause'), 
-               currentAlbumImage.classList.remove('playing'));
+               currentAlbumImage.classList.remove('playing'))
     }
 
     // Play Audio
@@ -123,12 +124,12 @@ console.log(controlButtons)
                 e.target.previousElementSibling.classList.remove('fa-pause')
                 e.target.previousElementSibling.classList.add('fa-play') 
             }
-
-            albumAudio.pause()
-            albumAudio.currentTime = 0
-            
-            resetTurntable()
         }
+        
+        albumAudio.pause()
+        albumAudio.currentTime = 0
+            
+        resetTurntable()
     }
 
     // Reset turntable
@@ -136,7 +137,6 @@ console.log(controlButtons)
     {
         currentAlbumImage.src = ''
         currentAlbumImage.classList.remove('playing')
-        albumSelectContainer.style.pointerEvents = 'all'
     }
     
     // Close turntable modal
