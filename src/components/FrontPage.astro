@@ -42,3 +42,16 @@ import OpenMenuButton from "../components/OpenMenuButton.astro";
     }
 </style>
 
+<script>
+    const openMenuButton = document.getElementById('open_menu_button') as HTMLElement
+    const frontPageContainer = document.querySelector('.front-page-container') as HTMLElement
+
+    openMenuButton.addEventListener('click', openMenu)
+
+    function openMenu()
+    {
+        frontPageContainer.style.opacity = '0'
+        frontPageContainer.style.transition = '.2s ease-in'
+    }
+    console.log(openMenuButton, frontPageContainer)
+</script>

@@ -49,6 +49,7 @@ const { openMenuButtonText } = Astro.props;
 <script>
     const openMenuButton = document.querySelector('#open_menu_button') as HTMLButtonElement
     const frontPageContainer = document.querySelector('.front-page-container') as HTMLElement
+    console.log(frontPageContainer)
 
     openMenuButton.addEventListener('click', openMenu)
  
