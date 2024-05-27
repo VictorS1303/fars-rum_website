@@ -1,36 +1,54 @@
 ---
-import WaiterInfoSliderControlButtons from "./WaiterInfoSliderControlButtons.astro"
-const waiterInfoCardHeading = ['Navn', 'Kunstnernavn', 'Rolle', 'Om']
+import WaiterInfoSliderControlButtons from "./WaiterInfoSliderControlButtons.astro";
+const waiterInfoCardHeading = ["Navn", "Kunstnernavn", "Rolle", "Om"];
 ---
 
 <div class="container waiter-cards-info-container">
-    <div class="card waiter-info-card current" id="waiter_info-card">
-        <div class="waiter-info-card-inner-container">
-            <div class="waiter-info-card-front" id="waiter_info_card_front">
-                <h3>Navn</h3>
-            </div>
-            <div class="waiter-info-card-back" id="waiter_info_card_back">
-                <p>Jumelo</p>
-            </div>
-        </div>
-    </div>
-    <div class="card waiter-info-card current" id="waiter_info-card">
-        <div class="waiter-info-card-inner-container">
-            <div class="waiter-info-card-front" id="waiter_info_card_front">
-                <h3>Hey</h3>
-            </div>
-            <div class="waiter-info-card-back" id="waiter_info_card_back">
-                <p>Jumelo</p>
+    <img
+        src="../avatars/avatar_test_image.jpg"
+        class="waiter-modal-image"
+        id="waiter_modal_image"
+        alt="waiter_modal_image"
+    />
+    <div class="cards-container">
+        <div class="card waiter-info-card current" id="waiter_info-card">
+            <div class="waiter-info-card-inner-container">
+                <div class="waiter-info-card-front" id="waiter_info_card_front">
+                    <h3>Navn</h3>
+                </div>
+                <div class="waiter-info-card-back" id="waiter_info_card_back">
+                    <p>Jumelo</p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="card waiter-info-card current" id="waiter_info-card">
-        <div class="waiter-info-card-inner-container">
-            <div class="waiter-info-card-front" id="waiter_info_card_front">
-                <h3>Navn</h3>
+        <div class="card waiter-info-card" id="waiter_info-card">
+            <div class="waiter-info-card-inner-container">
+                <div class="waiter-info-card-front" id="waiter_info_card_front">
+                    <h3>Hey</h3>
+                </div>
+                <div class="waiter-info-card-back" id="waiter_info_card_back">
+                    <p>Jumelo</p>
+                </div>
             </div>
-            <div class="waiter-info-card-back" id="waiter_info_card_back">
-                <p>Jumelo</p>
+        </div>
+        <div class="card waiter-info-card" id="waiter_info-card">
+            <div class="waiter-info-card-inner-container">
+                <div class="waiter-info-card-front" id="waiter_info_card_front">
+                    <h3>Navn</h3>
+                </div>
+                <div class="waiter-info-card-back" id="waiter_info_card_back">
+                    <p>Jumelo</p>
+                </div>
+            </div>
+        </div>
+        <div class="card waiter-info-card" id="waiter_info-card">
+            <div class="waiter-info-card-inner-container">
+                <div class="waiter-info-card-front" id="waiter_info_card_front">
+                    <h3>Navn</h3>
+                </div>
+                <div class="waiter-info-card-back" id="waiter_info_card_back">
+                    <p>Jumelo</p>
+                </div>
             </div>
         </div>
     </div>
@@ -42,49 +60,81 @@ const waiterInfoCardHeading = ['Navn', 'Kunstnernavn', 'Rolle', 'Om']
 </div>
 
 <style>
-    .container.waiter-cards-info-container
-    {
-        position: fixed;
-        top: 40%;
-        left: 20%;
-        transform: translate(-50%, -50%);
+    .container.waiter-cards-info-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+    }
+    img.waiter-modal-image {
+        margin-top: 50px;
+        height: 150px;
+        width: 150px;
+        border-radius: calc(var(--base-border-radius) * 50);
+        object-fit: cover;
     }
 
     .buttons button#next,
-    .buttons button#prev
-    {
+    .buttons button#prev {
         position: absolute;
         top: 65%;
+        color: var(--icon-color);
+        height: 30px;
+        width: 30px;
+        background-color: var(--button-background-color);
+        box-shadow: var(--box-shadow);
+        border: 2px solid var(--border-color);
+        border-radius: calc(var(--base-border-radius) * 2);
+        transition:
+            color 0.2s ease-in,
+            background-color 0.2s ease-in;
     }
 
-    .buttons button#next
-    {
+    .buttons button#next:hover,
+    .buttons button#prev:hover {
+        color: var(--button-background-color);
+        background-color: var(--icon-color);
+        transition:
+            color 0.2s ease-in,
+            background-color 0.2s ease-in;
+    }
+
+    .buttons button#next:active,
+    .buttons button#prev:active {
+        transform: scale(0.98);
+        box-shadow: none;
+        transition: none;
+    }
+
+    .buttons button#next {
         right: 15px;
     }
 
-    .buttons button#prev
-    {
+    .buttons button#prev {
         left: 15px;
     }
 
-
-
-
-    .card.waiter-info-card
-    {
-        height: 350px;
-        width: 200px;
-        position: absolute;
-        opacity: 0;
-        cursor: pointer;
-        transition: opacity .3s ease-in;
+    .cards-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
     }
 
-    .card.waiter-info-card.current
-    {
+    .card.waiter-info-card {
+        grid-column: 1;
+        grid-row: 1;
+        height: 350px;
+        width: 200px;
+        opacity: 0;
+        cursor: pointer;
+        transition: opacity 0.3s ease-in;
+    }
+
+    .card.waiter-info-card.current {
         z-index: 10000;
         opacity: 1;
-        transition: opacity .3s ease-in;
+        transition: opacity 0.3s ease-in;
     }
 
     .waiter-info-card-inner-container {
@@ -131,68 +181,91 @@ const waiterInfoCardHeading = ['Navn', 'Kunstnernavn', 'Rolle', 'Om']
         backface-visibility: hidden;
     }
 
-    .card.waiter-info-card .waiter-info-card-front
-    {
+    .card.waiter-info-card .waiter-info-card-front {
         background-color: #222;
     }
 
-    @media screen and (min-width: 768px)
-    {
-        .container.waiter-cards-info-container
-        {
-            top: 50%;
-            left: 32.5%;
-            transform: translateX(-50%);
+    @media screen and (min-width: 768px) {
+        .container.waiter-cards-info-container {
+            margin-top: 50px;
+            gap: 100px;
         }
 
-        .card.waiter-info-card
-        {
+        .card.waiter-info-card {
             height: 200px;
             width: 350px;
         }
-        .buttons
-        {
-            padding: 0 400px;
+
+        .buttons button#next {
+            right: 120px;
+            height: 40px;
+            width: 40px;
+            font-size: 20px;
+        }
+
+        .buttons button#prev {
+            left: 120px;
+            height: 40px;
+            width: 40px;
+            font-size: 20px;
+        }
+    }
+
+    @media screen and (min-width: 1200px)
+    {
+        .buttons button#next {
+            right: 350px;
+        }
+
+        .buttons button#prev {
+            left: 350px;
         }
     }
 </style>
 
 <script>
-    const cards = document.querySelectorAll('.card');
-const next = document.querySelector('#next');
-const prev = document.querySelector('#prev');
+    const cards = document.querySelectorAll('.card') as NodeList
+    const next = document.querySelector('#next')
+    const prev = document.querySelector('#prev')
 
-const nextSlide = () => {
-  // Get current class
-  const current = document.querySelector('.current');
-  // Remove current class
-  current.classList.remove('current');
-  // Check for next slide
-  if (current.nextElementSibling) {
-    // Add current to next sibling
-    current.nextElementSibling.classList.add('current');
-  } else {
-    // Add current to start
-    cards[0].classList.add('current');
-  }
-};
+    const nextSlide = () =>
+    {
+        // Get current class
+        const current = document.querySelector('.current')
+        // Remove current class
+        current.classList.remove('current')
+        // Check for next slide
+        if (current.nextElementSibling)
+        {
+            // Add current to next sibling
+            current.nextElementSibling.classList.add('current')
+        }
+        else
+        {
+            // Add current to start
+            current.parentElement.firstElementChild.classList.add('current')
+        }
+    }
 
-const prevSlide = () => {
-  // Get current class
-  const current = document.querySelector('.current');
-  // Remove current class
-  current.classList.remove('current');
-  // Check for prev slide
-  if (current.previousElementSibling) {
-    // Add current to prev sibling
-    current.previousElementSibling.classList.add('current');
-  } else {
-    // Add current to last
-    cards[cards.length - 1].classList.add('current');
-  }
-};
+    const prevSlide = () =>
+    {
+        // Get current class
+        const current = document.querySelector('.current')
+        // Remove current class
+        current.classList.remove('current')
+        // Check for prev slide
+        if (current.previousElementSibling)
+        {
+            // Add current to prev sibling
+            current.previousElementSibling.classList.add('current')
+        }
+        else
+        {
+            // Add current to last
+            current.parentElement.lastElementChild.classList.add('current')
+        }
+    }
 
-prev.addEventListener('click', prevSlide)
-next.addEventListener('click', nextSlide)
-
+    prev.addEventListener('click', prevSlide)
+    next.addEventListener('click', nextSlide)
 </script>
