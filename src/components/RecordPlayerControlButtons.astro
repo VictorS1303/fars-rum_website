@@ -52,47 +52,48 @@ console.log(controlButtons)
     const closeTurntableModalBtn = document.querySelector('#turntable_modal_close_button')
 
     
-    controlButtonsContainer.addEventListener('click', (e) => toggleAudioPlayState(e));
-    albumSelectContainer.addEventListener('click', (e) => changeAlbum(e))
+    controlButtonsContainer.addEventListener('click', (e) => toggleAudioPlayState(e))
     closeTurntableModalBtn.addEventListener('click',(e) => closeTurntableModal(e))
 
 
+    // Toggle Audio Play State
     function toggleAudioPlayState(e: any)
     {
-        if (e.target.classList.contains('fa-play'))
+        switch (true)
         {
-            playAudio(e)
-            albumSelectContainer.style.pointerEvents = 'none'
+            case e.target.classList.contains('fa-play'):
+                playAudio(e)
+                albumSelectContainer.style.pointerEvents = 'none'
+                break
+
+            case e.target.classList.contains('fa-pause'):
+                pauseAudio(e)
+                albumSelectContainer.style.pointerEvents = 'all'
+                break
+
+            case e.target.classList.contains('fa-stop'):
+                stopAudio(e)
+                albumSelectContainer.style.pointerEvents = 'all'
+                break
         }
-        else if(e.target.classList.contains('fa-pause'))
-        {
-            pauseAudio(e)
-            albumSelectContainer.style.pointerEvents = 'all'
-        }
-        else if (e.target.classList.contains('fa-stop'))
-        {
-            stopAudio(e)
-        }
+
     }
 
     
-
+    // Updating the play/pause icon based on audio play state 
     function updatePlayPauseIconState(e: any)
     {
-        if (e.target.classList.contains('fa-play'))
-        {
-            e.target.classList.remove('fa-play')
-            e.target.classList.add('fa-pause')
-            currentAlbumImage.classList.add('playing')
-        }
-        else
-        {
-            e.target.classList.add('fa-play')
-            e.target.classList.remove('fa-pause')
-            currentAlbumImage.classList.remove('playing')
-        }
+        e.target.classList.contains('fa-play') 
+            ? (e.target.classList.remove('fa-play'),
+               e.target.classList.add('fa-pause'), 
+               currentAlbumImage.classList.add('playing')) 
+
+            : (e.target.classList.add('fa-play'), 
+               e.target.classList.remove('fa-pause'), 
+               currentAlbumImage.classList.remove('playing'))
     }
 
+    // Play Audio
     function playAudio(e: any)
     {
 
@@ -103,6 +104,7 @@ console.log(controlButtons)
         updatePlayPauseIconState(e)
     }
 
+    // Pause Audio
     function pauseAudio(e: any)
     {
         currentAlbumImage.classList.remove('playing')
@@ -110,7 +112,8 @@ console.log(controlButtons)
         albumAudio.pause()
     }
 
-    function stopAudio(e?: any)
+    // Stop Audio
+    function stopAudio(e: any)
     {
         if (e.target.classList.contains('fa-stop'))
         {
@@ -119,22 +122,22 @@ console.log(controlButtons)
                 e.target.previousElementSibling.classList.remove('fa-pause')
                 e.target.previousElementSibling.classList.add('fa-play') 
             }
-
-            albumAudio.pause()
-            albumAudio.currentTime = 0
-            
-            resetTurntable()
         }
+        
+        albumAudio.pause()
+        albumAudio.currentTime = 0
+            
+        resetTurntable()
     }
 
+    // Reset turntable
     function resetTurntable()
     {
         currentAlbumImage.src = ''
         currentAlbumImage.classList.remove('playing')
-        albumSelectContainer.style.pointerEvents = 'all'
     }
     
-
+    // Close turntable modal
     function closeTurntableModal(e: any)
     {
         pauseAudio(e)
