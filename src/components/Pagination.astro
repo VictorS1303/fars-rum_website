@@ -1,0 +1,132 @@
+
+
+<div class="container pagination-container">
+    <div>
+        <i class="fas fa-arrow-left prev-page-btn" id="prev_page_btn"></i>
+        <div>
+            <span class="number current-page-number" id="current_page_number">1</span>
+            <span>/</span>
+            <span class="number total-page-number" id="total_page_number"></span>
+        </div>
+        <i class="fas fa-arrow-right next-page-btn" id="next_page_btn"></i>
+    </div>
+</div>
+
+
+<style>
+    .container.pagination-container
+    {
+        position: absolute;
+        bottom: 15px;
+        right: 20px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 20px;
+        z-index: 100;
+    }
+
+    .container.pagination-container > div
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .prev-page-btn,
+    .next-page-btn
+    {
+        cursor: pointer;
+        transition: transform .2s ease-in, color .2s ease-in;
+    }
+
+    .prev-page-btn:hover,
+    .next-page-btn:hover
+    {
+        color: var(--icon-color);
+        transition: color .15s ease-in;
+    }
+
+    .prev-page-btn:hover
+    {
+        transform: translateX(-2px);
+        transition: transform .2s ease-in;
+    }
+
+    .next-page-btn:hover
+    {
+        transform: translateX(2px);
+        transition: transform .2s ease-in;
+    }
+</style>
+
+<script>
+    const paginationContainer = document.querySelector('.pagination-container') as HTMLElement
+    const currentPageNumber = document.getElementById('current_page_number') as HTMLElement as any
+    const frontPageContainer = document.querySelector('.front-page-container') as HTMLElement
+    const totalPageNumber = document.getElementById('total_page_number') as HTMLElement as any
+    const prevPageButton = document.getElementById('prev_page_btn')
+    const nextPageButton = document.getElementById('next_page_btn')
+    const sectionContainers = document.querySelectorAll('.section-container') as any
+
+    paginationContainer.addEventListener('click', (e) => changePage(e))
+
+
+    // Setup total page number
+    function setUpTotalPageNumber()
+    {
+        totalPageNumber.textContent = sectionContainers.length - 1
+    }
+
+    setUpTotalPageNumber()
+
+    // Change Page
+    function changePage(e: any)
+    {
+        if(e.target.matches('#prev_page_btn'))
+        {
+           prevPage(e)
+        }
+        else if(e.target.matches('#next_page_btn'))
+        {
+            nextPage(e)
+        }
+    }
+
+    // Previous Page
+    function prevPage(e: any)
+    {
+        currentPageNumber.textContent--
+
+        if(currentPageNumber.textContent <= 0)
+        {
+            currentPageNumber.textContent = 1
+            frontPageContainer.style.opacity = '1'
+        }
+        else if(currentPageNumber.textContent < sectionContainers.length - 1)
+        {
+            nextPageButton.style.display = 'block'
+        }
+    }
+
+    // Next Page
+    function nextPage(e: any)
+    {
+        currentPageNumber.textContent++
+
+        if(currentPageNumber.textContent == sectionContainers.length - 1)
+        {
+            currentPageNumber.textContent = sectionContainers.length - 1
+            nextPageButton.style.display = 'none'
+        }
+
+        goToNextPage()
+    }
+
+  
+
+    function goToNextPage()
+    {
+        
+    }
+</script>
