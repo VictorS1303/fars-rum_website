@@ -35,6 +35,11 @@ const {className, id} = Astro.props
         z-index: 2000;
     }
 
+    section.open-page
+    {
+        z-index: 50000;
+    }
+
     section .container.section-container
     {
         position: relative;
@@ -48,16 +53,9 @@ const {className, id} = Astro.props
         pointer-events: all;
     }
 
-</style>
-
-<script>
-    const sectionContainers = document.querySelectorAll('.section-container')
-
-    window.addEventListener('load', () =>
+    .container.section.container.active
     {
-        sectionContainers.forEach((sectionContainer) =>
-        {
-            sectionContainer.classList.remove('active')
-        })
-    })
-</script>
+        z-index: 100000;
+    }
+
+</style>

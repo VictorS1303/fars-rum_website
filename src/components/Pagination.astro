@@ -75,6 +75,7 @@
     // Setup total page number
     function setUpTotalPageNumber()
     {
+        console.log(totalPageNumber.textContent)
         totalPageNumber.textContent = sectionContainers.length - 1
     }
 
@@ -120,13 +121,11 @@
             nextPageButton.style.display = 'none'
         }
 
-        goToNextPage()
+        goToNextPage(e)
     }
 
-  
-
-    function goToNextPage()
+    function goToNextPage(e: any)
     {
-        
+        console.log('123')
     }
 </script>
