@@ -16,7 +16,7 @@ import OpenMenuButton from "../components/OpenMenuButton.astro";
     </Section>
 </div>
 
-<style>
+<style>  
     .container.front-page-container p {
         font-family: "Roboto", sans-serif;
         position: absolute;
@@ -47,7 +47,7 @@ import OpenMenuButton from "../components/OpenMenuButton.astro";
     const frontPageContainer = document.querySelector('.front-page-container') as HTMLElement
 
     openMenuButton.addEventListener('click', openMenu)
-    window.addEventListener('load', openMenu)
+    // window.addEventListener('load', openMenu)
 
     function openMenu()
     {

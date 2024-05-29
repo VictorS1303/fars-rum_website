@@ -1,4 +1,4 @@
-
+<!-- 
 
 <div class="container pagination-container">
     <div>
@@ -75,7 +75,7 @@
     // Setup total page number
     function setUpTotalPageNumber()
     {
-        totalPageNumber.textContent = sectionContainers.length - 1
+        totalPageNumber.textContent = 2
     }
 
     setUpTotalPageNumber()
@@ -103,7 +103,7 @@
             currentPageNumber.textContent = 1
             frontPageContainer.style.opacity = '1'
         }
-        else if(currentPageNumber.textContent < sectionContainers.length - 1)
+        else if(currentPageNumber.textContent < 2)
         {
             nextPageButton.style.display = 'block'
         }
@@ -114,9 +114,9 @@
     {
         currentPageNumber.textContent++
 
-        if(currentPageNumber.textContent == sectionContainers.length - 1)
+        if(currentPageNumber.textContent == 2)
         {
-            currentPageNumber.textContent = sectionContainers.length - 1
+            currentPageNumber.textContent = 2
             nextPageButton.style.display = 'none'
         }
 
@@ -125,6 +125,7 @@
 
     function goToNextPage(e: any)
     {
-        console.log('123')
+        sectionContainers[2].style.display = 'block'
+        sectionContainers[2].style.zIndex = '500000'
     }
-</script>
+</script> -->

@@ -1,13 +1,20 @@
 ---
 import {data} from '../lib/fetch.js'
+
+const albumTitles = ['public/album_covers/letavaer_liiglad', 'public/album_covers/solskin_bag_sky', 'public/album_covers/sommer_ep', 'public/album_covers/stadig_dum']
+
+
+const albums = albumTitles.map((albumTitle, index) => ({
+    albumImage: `${albumTitle}.webp`,
+}))
 ---
 
 <div class="container album-covers-container">
-    {data.map((albumCovers) => (
+    {albums.map((album) => (
         <img
             class="image album-image"
             id="album_image"
-            src={albumCovers.album_image}
+            src={album.albumImage}
             alt="album_image"
         />
 
