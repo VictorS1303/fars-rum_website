@@ -44,4 +44,21 @@ const { openMenuButtonText } = Astro.props;
         transform: translateX(-100%);
         transition: transform .3s ease-in;
     }
+
+    .active-page
+    {
+        z-index: 70000;
+    }
 </style>
+
+<script>
+    const openMenuButton = document.getElementById('open_menu_button')
+    const sectionContainers = document.querySelectorAll('.section-container')
+
+    openMenuButton.addEventListener('click', openMenu)
+
+    function openMenu()
+    {
+        sectionContainers[0].classList.add('active-page')
+    }
+</script>
