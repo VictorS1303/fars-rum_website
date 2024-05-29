@@ -1,14 +1,15 @@
 ---
 import WaiterInfoCardsContainer from './WaiterInfoCardsContainer.astro'
 import WaiterModalCloseButton from './WaiterModalCloseButton.astro'
+const {data} = Astro.props 
 ---
 
-<div class="waiter-modal-container opened" id="waiter_modal_container">
+<div class="waiter-modal-container" id="waiter_modal_container">
     <WaiterModalCloseButton/>
     <div class="container waiter-modal-inner-container">
         <div>
             <!-- <img src="../avatars/avatar_test_image.jpg" class="waiter-modal-image" id="waiter_modal_image" alt="waiter_modal_image"> -->
-            <WaiterInfoCardsContainer/>
+            <WaiterInfoCardsContainer data={data}/>
         </div>
     </div>
 </div>
@@ -17,14 +18,14 @@ import WaiterModalCloseButton from './WaiterModalCloseButton.astro'
     .waiter-modal-container {
         display: grid;
         place-items: center;
-        position: absolute;
+        position: fixed;
         top: -50%;
         left: 50%;
         transform: translate(-50%, -50%);
         background-color: var(--modal-background-color);
-        height: 80%;
-        width: 90%;
-        z-index: 5000;
+        min-height: 600px;
+        width: 400px;
+        z-index: 10000;
         overflow: hidden;
         opacity: 0;
         pointer-events: none;
@@ -36,6 +37,7 @@ import WaiterModalCloseButton from './WaiterModalCloseButton.astro'
         top: 50%;
         opacity: 1;
         pointer-events: all;
+        z-index: 100000;
     }
 
     .container.waiter-modal-inner-container
@@ -74,6 +76,11 @@ import WaiterModalCloseButton from './WaiterModalCloseButton.astro'
         {
             height: 200px;
             width: 200px;
+        }
+
+        .waiter-modal-container
+        {
+            width: 80%;
         }
     }
  

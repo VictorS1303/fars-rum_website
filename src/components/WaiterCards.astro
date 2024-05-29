@@ -1,5 +1,8 @@
 ---
 import {data} from '../lib/fetch.js'
+import WaiterModal from './WaiterModal.astro'
+
+console.log("waiterdata", data)
 ---
 
 
@@ -8,6 +11,7 @@ import {data} from '../lib/fetch.js'
     {
         data.map((waiterCardsData) => (
             <div class="card waiter-card" id="waiter_card">
+                <WaiterModal data={waiterCardsData}/>
                 <img
                     class="image waiter-image"
                     id="waiter_image"
@@ -46,7 +50,6 @@ import {data} from '../lib/fetch.js'
         height: 250px;
         width: 200px;
         background-color: var(--card-background-color);
-        z-index: 4000;
         margin-bottom: 30px;
         cursor: pointer;
     }
