@@ -59,7 +59,7 @@
 @font-face
 {
     font-family: headingsFont;
-    src: url('public/fonts/ObviouslyDemo.woff2');
+    src: url('../fonts/ObviouslyDemo.woff2');
 }
 
 h1, h2, h3
