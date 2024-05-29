@@ -6,12 +6,14 @@ import TurntableModal from './TurntableModal.astro'
 ---
 
 <Section class="menu-container" id="menu_section">
-    <Logo isFaded={true} />
-    <header>
-        <h1>MENUEN</h1>
-    </header>
-    <MenuCards />
-    <TurntableModal/>
+    <div class="container section-container">
+        <Logo isFaded={true} />
+        <header>
+            <h1>MENUEN</h1>
+        </header>
+        <MenuCards />
+        <TurntableModal/>
+    </div>
 </Section>
 
 <style>
