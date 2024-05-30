@@ -25,16 +25,31 @@ const albums = albumTitles.map((albumTitle, index) => ({
 <style>
     .container.album-covers-container
     {
+        position: absolute;
+        top: -20px;
+        left: 50%;
         display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(-50%);
         gap: 20px;
+        width: 500px;
     }
 
     .container.album-covers-container img
     {
-        height: 100%;
-        width: 100%;
+        height: 80px;
+        width: 80px;
         object-fit: contain;
         border-radius: calc(var(--base-border-radius) * 50);
         cursor: pointer;
     }
+
+    /* @media screen and (min-width: 768px)
+    {
+        .container.album-covers-container
+        {
+      
+        }
+    } */
 </style>

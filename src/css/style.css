@@ -56,6 +56,11 @@
     user-select: none;
 }
 
+body
+{
+    overflow-x: hidden;
+}
+
 @font-face
 {
     font-family: headingsFont;
