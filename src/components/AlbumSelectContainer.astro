@@ -20,11 +20,12 @@ import Albums from './Albums.astro'
 </style>
 
 <script>
-    const albumSelectContainer = document.querySelector('.album-select-container')
+    const albumCoversContainer = document.querySelector('.album-covers-container')
+    const albumTitleText = document.getElementById('album_title_text')
     const albumImages = document.querySelectorAll('.album-image')
     const currentAlbumImage = document.querySelector('#current_album_image') as HTMLImageElement
    
-    albumSelectContainer.addEventListener('click', (e) => selectAlbum(e))
+    albumCoversContainer.addEventListener('click', (e) => selectAlbum(e))
 
     // Select Album
     function selectAlbum(e: any)
@@ -32,7 +33,9 @@ import Albums from './Albums.astro'
         if(e.target.matches('.album-image'))
         {            
             updateCurrentAlbumImage(e)
+            updateAlbumTitle(e)
         }
+
     }
 
     // Update Current Album Image
@@ -54,5 +57,20 @@ import Albums from './Albums.astro'
         }
     }
 
+    function updateAlbumTitle(e)
+    {
+        const titles = ['Letavær Liiglad', 'Solskin Bag Sky', 'Sommer EP', 'Stadig Dum']
     
+        const albumCovers = albumCoversContainer.children
+    
+        for(let i = 0; i < albumCovers.length; i++)
+        {
+           albumCovers[i].setAttribute('data-title', titles[i])
+        }
+
+        if(e.target.matches('.album-image'))
+        {
+            albumTitleText.textContent = e.target.dataset.title
+        }
+    }
 </script>
